@@ -30,20 +30,34 @@ function getArticles() {
 
 }
 
-var articleDate = getArticles();
-var contentDiv = document.getElementsByClassName('content-main')[0];
+window.onload = function() {
 
-articleDate.forEach( function(elem) {
-  var newDiv = document.createElement('div');
-  newDiv.className = "article";
+  var articleDate = getArticles();
+  var contentDiv = document.getElementsByClassName('content-main')[0];
 
-  var contentLink = document.createElement('a');
-  contentLink.href = elem["link"]
+  articleDate.forEach( function(elem) {
+    var newDiv = document.createElement('div');
+    newDiv.className = "article";
 
-  var title = document.createElement('h3');
-  title.innerHTML = elem["title"];
+    var contentLink = document.createElement('a');
+    contentLink.href = elem["link"]
 
-  contentLink.appendChild(title);
-  newDiv.appendChild(contentLink);
-  contentDiv.appendChild(newDiv);
-});
+    var title = document.createElement('h3');
+    title.innerHTML = elem["title"];
+
+    var player = document.createElement('iframe');
+    player.className = 'player';
+    player.setAttribute('height', '166');
+    player.setAttribute('scrolling', 'no');
+    player.setAttribute('frameborder', 'no');
+    // player.setAttribute(
+    // height="166" scrolling="no" frameborder="no"
+
+    initPlayer(player, elem["tagsArray"]);
+
+    contentLink.appendChild(title);
+    newDiv.appendChild(contentLink);
+    contentDiv.appendChild(newDiv);
+    contentDiv.appendChild(player);
+  });
+}
