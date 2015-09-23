@@ -19,15 +19,16 @@ function getArticles() {
   var data = JSON.parse(request.responseText);
     var articleObjs = data.response.results;
   var urls = articleObjs.map(function(elem) {
-    return [elem.webTitle, getTags(elem.apiUrl)];
+    return {
+      "title" : elem.webTitle,
+      "tagsArray" : getTags(elem.apiUrl),
+      "link" : elem.webUrl
+    }
   });
 
   return urls;
 
 }
-
-
-
 
 var articleDate = getArticles();
 var contentDiv = document.getElementsByClassName('content-main')[0];
@@ -37,10 +38,10 @@ articleDate.forEach( function(elem) {
   newDiv.className = "article";
 
   var contentLink = document.createElement('a');
-  contentLink.href = 'dummyURL';
+  contentLink.href = elem["link"]
 
   var title = document.createElement('h3');
-  title.innerHTML = elem[0];
+  title.innerHTML = elem["title"];
 
   contentLink.appendChild(title);
   newDiv.appendChild(contentLink);
