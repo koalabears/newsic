@@ -1,0 +1,66 @@
+{
+  "response": {
+    "status": "ok",
+    "userTier": "developer",
+    "total": 1,
+    "content": {
+      "type": "article",
+      "sectionId": "music",
+      "webTitle": "The playlist – indie: Diiv, Jennylee, Deerhunter and more",
+      "webPublicationDate": "2015-09-23T10:13:24Z",
+      "id": "music/2015/sep/23/the-playlist-indie-diiv-jennylee-deerhunter-and-more",
+      "webUrl": "http://www.theguardian.com/music/2015/sep/23/the-playlist-indie-diiv-jennylee-deerhunter-and-more",
+      "apiUrl": "http://content.guardianapis.com/music/2015/sep/23/the-playlist-indie-diiv-jennylee-deerhunter-and-more",
+      "sectionName": "Music",
+      "tags": [{
+        "id": "music/music",
+        "webTitle": "Music",
+        "type": "keyword",
+        "sectionId": "music",
+        "webUrl": "http://www.theguardian.com/music/music",
+        "apiUrl": "http://content.guardianapis.com/music/music",
+        "sectionName": "Music"
+      }, {
+        "id": "culture/culture",
+        "webTitle": "Culture",
+        "type": "keyword",
+        "sectionId": "culture",
+        "webUrl": "http://www.theguardian.com/culture/culture",
+        "apiUrl": "http://content.guardianapis.com/culture/culture",
+        "sectionName": "Culture"
+      }, {
+        "id": "music/indie",
+        "webTitle": "Indie",
+        "type": "keyword",
+        "sectionId": "music",
+        "webUrl": "http://www.theguardian.com/music/indie",
+        "apiUrl": "http://content.guardianapis.com/music/indie",
+        "sectionName": "Music"
+      }, {
+        "id": "music/elbow",
+        "webTitle": "Elbow",
+        "type": "keyword",
+        "sectionId": "music",
+        "webUrl": "http://www.theguardian.com/music/elbow",
+        "apiUrl": "http://content.guardianapis.com/music/elbow",
+        "sectionName": "Music"
+      }, {
+        "id": "music/deerhunter",
+        "webTitle": "Deerhunter",
+        "type": "keyword",
+        "sectionId": "music",
+        "webUrl": "http://www.theguardian.com/music/deerhunter",
+        "apiUrl": "http://content.guardianapis.com/music/deerhunter",
+        "sectionName": "Music"
+      }, {
+        "id": "music/warpaint",
+        "webTitle": "Warpaint",
+        "type": "keyword",
+        "sectionId": "music",
+        "webUrl": "http://www.theguardian.com/music/warpaint",
+        "apiUrl": "http://content.guardianapis.com/music/warpaint",
+        "sectionName": "Music"
+      }]
+    }
+  }
+}

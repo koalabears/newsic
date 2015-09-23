@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>SoundCloud API</title>
+      <script src="main.js"></script>
+      <script src="http://connect.soundcloud.com/sdk-2.0.0.js"></script>
+      <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+      <ul>
+        <li><a href="#" class="genre">dubstep</a><li>
+          <!-- each link has a class of genre; -->
+        <li><a href="#" class="genre">rock</a><li>
+      </ul>
+      <div id="target"></div>
+
+<!-- <script>
+  $("#loadTracks").live("click", function(){
+    SC.get("/tracks", {limit: 1}, function(tracks){
+      var track = tracks[0];
+      SC.oEmbed(track.uri, document.getElementById("track"));
+    });
+  });
+</script>
+
+<input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+<div id="track"></div> -->
+
+
+</body>
+</html>
