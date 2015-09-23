@@ -19,23 +19,31 @@ function getArticles() {
   var data = JSON.parse(request.responseText);
     var articleObjs = data.response.results;
   var urls = articleObjs.map(function(elem) {
-    return [elem.webTitle, getTags(elem.apiUrl)];
+    return {
+      "title" : elem.webTitle,
+      "tagsArray" : getTags(elem.apiUrl),
+      "link" : elem.webUrl
+    }
   });
 
   return urls;
 
 }
 
-
-
-
 var articleDate = getArticles();
 var contentDiv = document.getElementsByClassName('content-main')[0];
 
 articleDate.forEach( function(elem) {
-  var newDiv = document.createElement('div')
+  var newDiv = document.createElement('div');
   newDiv.className = "article";
-  var title = "<h3>" + elem[0] + "</h3>"
-  newDiv.innerHTML = title;
+
+  var contentLink = document.createElement('a');
+  contentLink.href = elem["link"]
+
+  var title = document.createElement('h3');
+  title.innerHTML = elem["title"];
+
+  contentLink.appendChild(title);
+  newDiv.appendChild(contentLink);
   contentDiv.appendChild(newDiv);
 });
