@@ -33,9 +33,16 @@ var articleDate = getArticles();
 var contentDiv = document.getElementsByClassName('content-main')[0];
 
 articleDate.forEach( function(elem) {
-  var newDiv = document.createElement('div')
+  var newDiv = document.createElement('div');
   newDiv.className = "article";
-  var title = "<h3>" + elem[0] + "</h3>"
-  newDiv.innerHTML = title;
+
+  var contentLink = document.createElement('a');
+  contentLink.href = 'dummyURL';
+
+  var title = document.createElement('h3');
+  title.innerHTML = elem[0];
+
+  contentLink.appendChild(title);
+  newDiv.appendChild(contentLink);
   contentDiv.appendChild(newDiv);
 });
