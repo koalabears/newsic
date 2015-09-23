@@ -6,7 +6,7 @@ window.onload = function() new Promise(function(resolve, reject) { //initialise 
   });
   SC.get('/tracks', {limit: 1}, function(tracks) { //callback function that calls matches
     var random = Math.floor(Math.random() * 49); //default number of tracks returned = 50
-    SC.oEmbed(tracks[random].uri, { auto_play: true }, document.getElementById('target'));
+    SC.oEmbed(tracks[10].uri, { auto_play: true }, document.getElementById('target'));
   });
 });
 
