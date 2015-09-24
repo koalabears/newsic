@@ -35,15 +35,16 @@ function getArticles() {
 }
 
 window.onload = function() {
-
+  var i = 0;
   var articleDate = getArticles();
   var contentDiv = document.getElementsByClassName('content-main')[0];
 
   articleDate.forEach( function(elem) {
-
+    if (i === 2) return ;
+    i++;
     var newDiv = document.createElement('div');
     newDiv.className = "article";
-    
+
     var contentLink = document.createElement('a');
     contentLink.href = elem["link"];
 
