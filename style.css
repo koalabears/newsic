@@ -1,16 +1,14 @@
-/*.html {
-  height: 100%
-}*/
-
+<<<<<<< HEAD
 body {
   margin: 0;
+  padding-top: 60px;
   overflow-y: hidden;
   height:100%
 }
 
 .header {
   position: fixed;
-  height: 4em;
+  height: 60px;
   top: 0px;
   background-color: white;
   width: 100%;
@@ -22,6 +20,12 @@ body {
     width: 3.5em;
     float: right;
     margin-right: 20%;
+}
+
+.header h2 {
+  float: right;
+  font: bold 20px / 40px sans-serif;
+  margin: 10px;
 }
 
 .wrapper {
@@ -43,48 +47,34 @@ body {
 }
 
 /*DESKTOP*/
-@media screen and (min-width: 400px){
+/*@media screen and (min-width: 400px){
   .header{
-    height: 5%;
+    height: 12em;
   }
-  .header img {
-    width: 5%;
-    margin: 1% 0.5% 1% 0.5%;
-  }
-  /*.content-main {
-    width: auto;
-  }*/
-}
+}*/
 
 /*MOBILE*/
 .header img {
-    width: 20%;
-    margin: 2% 1% 1.5% 1%;
-
+  height: 50px;
+  margin: 5px;
 }
 
 .content-main {
-<<<<<<< HEAD
   margin: 4em 1em 1em 1em;
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
-=======
-  /*margin: 0.4% 0.1% 0.1% 0.1%;*/
-  /*width: 100%;*/
-  text-size: 20%;
->>>>>>> gh-pages
 }
 
 /*.clear {
   clear: both;
 }*/
 
+h3 {
+  margin-top: 0;
+}
+
 .article {
-<<<<<<< HEAD
-  margin: 2em 0 2em 0;
+  margin: 0% 0% 2% 0%;
   font-family: 'Andale Mono', AndaleMono, monospace;
-=======
-  margin: 7% 0% 2% 0%;
->>>>>>> gh-pages
 }
 
 .player {
