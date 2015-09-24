@@ -16,6 +16,7 @@ function getTrackUrl(data){
   var songUrl, type;
   var i = 0;
   do {
+    if (i >= data.collection.length) return ;
     type = data.collection[i].kind;
     songUrl = data.collection[i].uri;
     i++;
@@ -26,20 +27,31 @@ function getTrackUrl(data){
 function URLFromResponse(responseText) {
   var data = JSON.parse(responseText);
   songUrl = getTrackUrl(data);
-  return "https://w.soundcloud.com/player/?url=" + songUrl + "&color=0066cc";
+  if (songUrl)
+    return "https://w.soundcloud.com/player/?url=" + songUrl + "&color=0066cc";
+  else
+    return ;
 }
 
-function generateURL(tags_array) {
+function generateURL(tags_array, articleData) {
 
   //console.log(tags_array);
   var url_api = createSoundcloudQuery(tags_array);
   // creates Soundcloud API link
-  console.log(url_api);
+  // console.log(url_api);
   var request = new XMLHttpRequest();
-  request.open("GET", url_api, false);
+  request.open("GET", url_api);
+  request.onload = function(e) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        var songURL = URLFromResponse(request.responseText);
+        if (songURL) createArticleDiv(songURL, articleData);
+      }
+    }
+  };
   request.send(null);
   // generates the url for soundcloud player
-  return URLFromResponse(request.responseText);
+  // return URLFromResponse(request.responseText);
 }
 
 
