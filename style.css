@@ -35,9 +35,14 @@
 }
 
 .content-main {
+<<<<<<< HEAD
+  margin: 4em 1em 1em 1em;
+  font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
+=======
   /*margin: 0.4% 0.1% 0.1% 0.1%;*/
   /*width: 100%;*/
   text-size: 20%;
+>>>>>>> gh-pages
 }
 
 /*.clear {
@@ -45,9 +50,50 @@
 }*/
 
 .article {
+<<<<<<< HEAD
+  margin: 2em 0 2em 0;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+=======
   margin: 7% 0% 2% 0%;
+>>>>>>> gh-pages
 }
 
 .player {
   width: 100%;
+}
+
+.titles {
+  color: black;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+  a {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p {
+  color: black;
+}
+
+.titles:visited {
+  text-decoration: none;
+}
+
+.titles:hover {
+  background-color: #E6E6E6;
+  transition: background-color .5s;
+  text-decoration: none;
+}
+
+
+
+
+
+.flavour {
+  font-size: 1em;
 }
