@@ -14,6 +14,14 @@ function getTags(url) {
 }
 
 function createContent() {
+
+  document.getElementById('splash').addEventListener('click', function() {
+    document.getElementById('splash').style.bottom = '100vh';
+
+    document.getElementsByClassName('wrapper')[0].style["margin-top"] = 0;
+    document.getElementsByClassName('wrapper')[0].style["display"] = "block"
+    document.getElementsByTagName('body')[0].style["overflow-y"] = "auto";
+  });
   var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
   request.open("GET", url);
@@ -26,6 +34,7 @@ function createContent() {
     }
   };
   request.send(null);
+
 }
 
 function initCalls(data) {
@@ -41,7 +50,6 @@ function getGuardianTags(elem) {
   var url = elem.apiUrl;
   var request = new XMLHttpRequest();
   request.open("GET", url + "?show-tags=keyword&api-key=test");
-  request.send(null);
   request.onload = function(e) {
     if (request.readyState === 4) {
       if (request.status === 200) {
@@ -57,8 +65,10 @@ function getGuardianTags(elem) {
   };
   request.send(null);
 }
-
+// var loaded = 0;
 function createArticleDiv(songURL, articleData) {
+  // loaded++;
+  // document.getElementById('splash').innerHTML = loaded;
   var contentDiv = document.getElementsByClassName('content-main')[0];
   var newDiv = document.createElement('div');
   newDiv.className = "article";
