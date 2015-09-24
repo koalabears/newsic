@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://www.dwyl.io/images/favicon.ico" type="image/x-icon" />
+    <title>newsic tests</title>
+  </head>
+  <body>
+    <h2>Tests</h2>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script src="staticData.js"></script> <!-- setup the challenge -->
+    <script src = "main.js"></script>
+    <script src = "testSetup.js"></script>
+
+    <script>
+
+    test("Testing if createSoundcloudQuery constructs url correctly", function(assert) {
+      var result = createSoundcloudQuery(["Classical music", "Festivals"]);
+      var expected = "http://api.soundcloud.com/search?q=Classical%20music%20Festivals&client_id=a2b378fe2c15350323249b3ab162e4bf"
+
+      assert.equal(result, expected, "Function returns correct query!");
+
+      result = createSoundcloudQuery(["Punk", "Pop and rock", "Music industry", "Pharmaceuticals industry", "Business"]);
+      expected = "http://api.soundcloud.com/search?q=Punk%20Pop%20and%20rock%20&client_id=a2b378fe2c15350323249b3ab162e4bf";
+      assert.equal(result, expected, "Function returns correct query with too many tags!");
+    });
+
+
+    test("Testing if getTrackUrl returns a track url when data begins with a non-track link", function(assert) {
+      var result = getTrackUrl(staticData);
+      var expected = "https://api.soundcloud.com/tracks/200657662";
+      assert.equal(result, expected, "Function returns correct query!");
+    });
+
+
+    // test("Testing if URLFromResponse returns a valid Soundcloud url link", function(assert) {
+    //   // var result = getTrackUrl(staticData);
+    //   // var expected = "https://api.soundcloud.com/tracks/200657662";
+    //   // assert.equal(result, expected, "Function returns correct query!");
+    // });
+
+
+
+
+    </script>
+  </body>
+</html>
