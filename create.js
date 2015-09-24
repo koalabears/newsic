@@ -20,6 +20,7 @@ function createContent() {
 
     document.getElementsByClassName('wrapper')[0].style["margin-top"] = 0;
     document.getElementsByClassName('wrapper')[0].style["display"] = "block"
+    document.getElementsByClassName('header')[0].style["top"] = 0;
     document.getElementsByTagName('body')[0].style["overflow-y"] = "auto";
   });
   var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
