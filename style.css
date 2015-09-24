@@ -18,14 +18,10 @@ body {
   display: none;
 }
 
-.header h2{
-  float: right;
-  margin-right: 35em;
-}
-
 .header img {
     width: 3.5em;
-
+    float: right;
+    margin-right: 20%;
 }
 
 .wrapper {
@@ -46,14 +42,36 @@ body {
   /*z-index: 2;*/
 }
 
-@media (min-width: 400px){
-  .header img {
-    margin: 0.5em 0.3em 1em 0em;
+/*DESKTOP*/
+@media screen and (min-width: 400px){
+  .header{
+    height: 5%;
   }
+  .header img {
+    width: 5%;
+    margin: 1% 0.5% 1% 0.5%;
+  }
+  /*.content-main {
+    width: auto;
+  }*/
+}
+
+/*MOBILE*/
+.header img {
+    width: 20%;
+    margin: 2% 1% 1.5% 1%;
+
 }
 
 .content-main {
+<<<<<<< HEAD
   margin: 4em 1em 1em 1em;
+  font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
+=======
+  /*margin: 0.4% 0.1% 0.1% 0.1%;*/
+  /*width: 100%;*/
+  text-size: 20%;
+>>>>>>> gh-pages
 }
 
 /*.clear {
@@ -61,9 +79,50 @@ body {
 }*/
 
 .article {
+<<<<<<< HEAD
   margin: 2em 0 2em 0;
+  font-family: 'Andale Mono', AndaleMono, monospace;
+=======
+  margin: 7% 0% 2% 0%;
+>>>>>>> gh-pages
 }
 
 .player {
   width: 100%;
+}
+
+.titles {
+  color: black;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+  a {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p {
+  color: black;
+}
+
+.titles:visited {
+  text-decoration: none;
+}
+
+.titles:hover {
+  background-color: #E6E6E6;
+  transition: background-color .5s;
+  text-decoration: none;
+}
+
+
+
+
+
+.flavour {
+  font-size: 1em;
 }
