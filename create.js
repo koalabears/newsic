@@ -40,9 +40,10 @@ window.onload = function() {
   var contentDiv = document.getElementsByClassName('content-main')[0];
 
   articleDate.forEach( function(elem) {
+
     var newDiv = document.createElement('div');
     newDiv.className = "article";
-
+    
     var contentLink = document.createElement('a');
     contentLink.href = elem["link"];
 
