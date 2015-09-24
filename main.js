@@ -24,6 +24,7 @@ function getTrackUrl(data){
   return songUrl;
 }
 
+
 function URLFromResponse(responseText) {
   var data = JSON.parse(responseText);
   songUrl = getTrackUrl(data);
@@ -33,7 +34,9 @@ function URLFromResponse(responseText) {
     return ;
 }
 
+
 function generateURL(tags_array, articleData) {
+
 
   //console.log(tags_array);
   var url_api = createSoundcloudQuery(tags_array);
@@ -45,7 +48,12 @@ function generateURL(tags_array, articleData) {
     if (request.readyState === 4) {
       if (request.status === 200) {
         var songURL = URLFromResponse(request.responseText);
-        if (songURL) createArticleDiv(songURL, articleData);
+        if (songURL) {
+          createArticleDiv(songURL, articleData);
+        }
+        else {
+          console.log("failed to load song url: " + songURL);
+        }
       }
     }
   };

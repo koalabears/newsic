@@ -24,6 +24,7 @@
 
 .content-main {
   margin: 4em 1em 1em 1em;
+  font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
 }
 
 /*.clear {
@@ -32,8 +33,45 @@
 
 .article {
   margin: 2em 0 2em 0;
+  font-family: 'Andale Mono', AndaleMono, monospace;
 }
 
 .player {
   width: 100%;
+}
+
+.titles {
+  color: black;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+  a {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p {
+  color: black;
+}
+
+.titles:visited {
+  text-decoration: none;
+}
+
+.titles:hover {
+  background-color: #E6E6E6;
+  transition: background-color .5s;
+  text-decoration: none;
+}
+
+
+
+
+
+.flavour {
+  font-size: 1em;
 }
