@@ -12,7 +12,7 @@ function getTags(url) {
 }
 
 function getArticles() {
-  var url = "http://content.guardianapis.com/search?section=music&api-key=test"
+  var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
   request.open("GET", url, false);
   request.send(null);
@@ -20,10 +20,14 @@ function getArticles() {
     var articleObjs = data.response.results;
   var urls = articleObjs.map(function(elem) {
     return {
+
       "title" : elem.webTitle,
       "tagsArray" : getTags(elem.apiUrl),
-      "link" : elem.webUrl
-    }
+      "link" : elem.webUrl,
+      "article" : elem.fields.body
+
+    };
+
   });
 
   return urls;
@@ -40,10 +44,22 @@ window.onload = function() {
     newDiv.className = "article";
 
     var contentLink = document.createElement('a');
-    contentLink.href = elem["link"]
+    contentLink.href = elem["link"];
 
     var title = document.createElement('h3');
     title.innerHTML = elem["title"];
+
+    var article_content = document.createElement('p');
+    if (elem.article.length>500){
+      article_content.innerHTML=elem.article.substring(0,500)+"...";
+    }
+    else{
+      article_content.innerHTML = elem.article;
+    }
+
+    var readMore=document.createElement('button');
+    readMore.innerHTML="Read more...";
+    contentLink.appendChild(readMore);
 
     var player = document.createElement('iframe');
     player.className = 'player';
@@ -55,8 +71,16 @@ window.onload = function() {
 
     initPlayer(player, elem["tagsArray"]);
 
-    contentLink.appendChild(title);
+
+
+    newDiv.appendChild(title);
+    // contentLink.appendChild(title);
+
+    newDiv.appendChild(article_content);
     newDiv.appendChild(contentLink);
+    // newDiv.appendChild(readMore);
+
+    // contentLink.appendChild(readMore);
     contentDiv.appendChild(newDiv);
     contentDiv.appendChild(player);
   });
