@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 body {
   margin: 0;
   padding-top: 60px;
+  overflow-y: hidden;
+  height:100%
 }
 
 .header {
@@ -10,12 +13,37 @@ body {
   background-color: white;
   width: 100%;
   /*margin: 0em 0em 0.5em 0em;*/
+  display: none;
+}
+
+.header img {
+    width: 3.5em;
+    float: right;
+    margin-right: 20%;
 }
 
 .header h2 {
   float: right;
   font: bold 20px / 40px sans-serif;
   margin: 10px;
+}
+
+.wrapper {
+  margin-top: 100vh;
+  transition: margin-top 1s;
+  /*display: none;*/
+}
+
+#splash {
+  position: absolute;
+  transition: bottom 1s;
+  width:100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://cloud.githubusercontent.com/assets/12450298/10079980/fac4af3a-62e4-11e5-8821-7a1d8fcdf246.jpg) no-repeat center center;
+  background-size: cover;
+  /*z-index: 2;*/
 }
 
 /*DESKTOP*/
@@ -32,9 +60,8 @@ body {
 }
 
 .content-main {
-  /*margin: 0.4% 0.1% 0.1% 0.1%;*/
-  /*width: 100%;*/
-  text-size: 20%;
+  margin: 4em 1em 1em 1em;
+  font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
 }
 
 /*.clear {
@@ -47,8 +74,45 @@ h3 {
 
 .article {
   margin: 0% 0% 2% 0%;
+  font-family: 'Andale Mono', AndaleMono, monospace;
 }
 
 .player {
   width: 100%;
+}
+
+.titles {
+  color: black;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+  a {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p {
+  color: black;
+}
+
+.titles:visited {
+  text-decoration: none;
+}
+
+.titles:hover {
+  background-color: #E6E6E6;
+  transition: background-color .5s;
+  text-decoration: none;
+}
+
+
+
+
+
+.flavour {
+  font-size: 1em;
 }

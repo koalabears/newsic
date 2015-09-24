@@ -14,6 +14,14 @@ function getTags(url) {
 }
 
 function createContent() {
+
+  document.getElementById('splash').addEventListener('click', function() {
+    document.getElementById('splash').style.bottom = '100vh';
+
+    document.getElementsByClassName('wrapper')[0].style["margin-top"] = 0;
+    document.getElementsByClassName('wrapper')[0].style["display"] = "block"
+    document.getElementsByTagName('body')[0].style["overflow-y"] = "auto";
+  });
   var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
   request.open("GET", url);
@@ -26,6 +34,7 @@ function createContent() {
     }
   };
   request.send(null);
+
 }
 
 function initCalls(data) {
@@ -41,7 +50,6 @@ function getGuardianTags(elem) {
   var url = elem.apiUrl;
   var request = new XMLHttpRequest();
   request.open("GET", url + "?show-tags=keyword&api-key=test");
-  request.send(null);
   request.onload = function(e) {
     if (request.readyState === 4) {
       if (request.status === 200) {
@@ -57,17 +65,21 @@ function getGuardianTags(elem) {
   };
   request.send(null);
 }
-
+// var loaded = 0;
 function createArticleDiv(songURL, articleData) {
+  // loaded++;
+  // document.getElementById('splash').innerHTML = loaded;
   var contentDiv = document.getElementsByClassName('content-main')[0];
   var newDiv = document.createElement('div');
   newDiv.className = "article";
+
 
   var contentLink = document.createElement('a');
   contentLink.href = articleData.webUrl;
 
   var title = document.createElement('h3');
-  title.innerHTML = articleData.webTitle;
+  title.innerHTML = articleData.webTitle.toUpperCase();
+  title.className = "titles";
 
   var article_content = document.createElement('p');
   var content = articleData.fields.body;
@@ -76,10 +88,11 @@ function createArticleDiv(songURL, articleData) {
   } else {
     article_content.innerHTML = content;
   }
+  article_content.className = "flavour";
 
-  var readMore = document.createElement('button');
-  readMore.innerHTML = "Read more...";
-  contentLink.appendChild(readMore);
+  // var readMore = document.createElement('button');
+  // readMore.innerHTML = "Read more...";
+   contentLink.appendChild(title);
 
   var player = document.createElement('iframe');
   player.className = 'player';
@@ -87,14 +100,18 @@ function createArticleDiv(songURL, articleData) {
   player.setAttribute('scrolling', 'no');
   player.setAttribute('frameborder', 'no');
   player.setAttribute('src', songURL);
-  newDiv.appendChild(title);
+
+  // initPlayer(player, elem["tagsArray"]);
+newDiv.appendChild(contentLink);
+  // newDiv.appendChild(title);
   // contentLink.appendChild(title);
 
   newDiv.appendChild(article_content);
-  newDiv.appendChild(contentLink);
+
   // newDiv.appendChild(readMore);
 
   // contentLink.appendChild(readMore);
+  newDiv.appendChild(player);
   contentDiv.appendChild(newDiv);
-  contentDiv.appendChild(player);
+
 }
