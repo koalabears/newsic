@@ -1,14 +1,4 @@
 
-function fetchArticles(){
- $.getJSON('hackernews-rss.json', function(response){
-  var html = '';
-response.rss.channel[0].item.forEach(function(item) {
-html += '<li class="newstitle">'+item.title +'</li>';
- });
-    $('#articles').append(html);
- });
-}
-
 function loadCSS(href){
   var css = document.createElement('link');
    css.setAttribute('rel', 'stylesheet');
@@ -35,4 +25,3 @@ var css = [
 ];
 
 css.forEach(function(href){ loadCSS(href); });
-loadJS('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', fetchArticles);
