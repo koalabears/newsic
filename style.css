@@ -108,8 +108,12 @@ body {
 }
 
 .content-main {
-  margin: 4em 1em 1em 1em;
+
+  margin: auto;
+>>>>>>> Stashed changes
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
+  max-width: 55em;
+
 }
 
 /*.clear {
