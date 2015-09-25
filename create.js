@@ -16,12 +16,14 @@ function getTags(url) {
 function createContent() {
 
   document.getElementById('splash').addEventListener('click', function() {
-    document.getElementById('splash').style.bottom = '100vh';
+    document.getElementById('splash').style.bottom = '150vh';
+    // document.getElementById('splash').getElementsByTagName('img')[0].style.bottom = "50px";
 
     document.getElementsByClassName('wrapper')[0].style["margin-top"] = 0;
     document.getElementsByClassName('wrapper')[0].style["display"] = "block"
     document.getElementsByClassName('header')[0].style["top"] = 0;
     document.getElementsByTagName('body')[0].style["overflow-y"] = "auto";
+
   });
   var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
