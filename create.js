@@ -68,6 +68,8 @@ function getGuardianTags(elem) {
   };
   request.send(null);
 }
+
+
 // var loaded = 0;
 function createArticleDiv(songURL, articleData) {
   // loaded++;
@@ -85,37 +87,36 @@ function createArticleDiv(songURL, articleData) {
   title.innerHTML = articleData.webTitle;
   title.className = "titles";
 
-  var article_content = document.createElement('p');
-  var content = articleData.fields.body;
-  if (content.length > 500) {
-    article_content.innerHTML = content.substring(0, 500) + "...";
-  } else {
-    article_content.innerHTML = content;
-  }
-  article_content.className = "flavour";
+  var article_content = initArticleContent(articleData);
+  
+  var player = initPlayer(songURL);
 
-  // var readMore = document.createElement('button');
-  // readMore.innerHTML = "Read more...";
-   contentLink.appendChild(title);
+  contentLink.appendChild(title);
+  newDiv.appendChild(contentLink);
+  newDiv.appendChild(article_content);
+  newDiv.appendChild(player);
+  contentDiv.appendChild(newDiv);
 
+}
+
+function initPlayer(url) {
   var player = document.createElement('iframe');
   player.className = 'player';
   player.setAttribute('height', '166');
   player.setAttribute('scrolling', 'no');
   player.setAttribute('frameborder', 'no');
   player.setAttribute('src', songURL);
+  return player;
+}
 
-  // initPlayer(player, elem["tagsArray"]);
-newDiv.appendChild(contentLink);
-  // newDiv.appendChild(title);
-  // contentLink.appendChild(title);
-
-  newDiv.appendChild(article_content);
-
-  // newDiv.appendChild(readMore);
-
-  // contentLink.appendChild(readMore);
-  newDiv.appendChild(player);
-  contentDiv.appendChild(newDiv);
-
+function initArticleContent(data) {
+  var article_content = document.createElement('p');
+  var content = data.fields.body;
+  if (content.length > 500) {
+    article_content.innerHTML = content.substring(0, 500) + "...";
+  } else {
+    article_content.innerHTML = content;
+  }
+  article_content.className = "flavour";
+  return article_content;
 }
