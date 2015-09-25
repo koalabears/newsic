@@ -1,4 +1,14 @@
 
+function fetchArticles(){
+ $.getJSON('hackernews-rss.json', function(response){
+  var html = '';
+response.rss.channel[0].item.forEach(function(item) {
+html += '<li class="newstitle">'+item.title +'</li>';
+ });
+    $('#articles').append(html);
+ });
+}
+
 function loadCSS(href){
   var css = document.createElement('link');
    css.setAttribute('rel', 'stylesheet');
