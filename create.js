@@ -1,30 +1,11 @@
+// Find content + links from apis then dynamically create content!
+// execution starts here
 window.onload = createContent;
 
-function getTags(url) {
-
-  var request = new XMLHttpRequest();
-  request.open("GET", url + "?show-tags=keyword&api-key=test", false);
-  request.send(null);
-  var data = JSON.parse(request.responseText);
-  return data.response.content.tags.map(function(elem) {
-    return elem.webTitle;
-  }).filter(function(elem) {
-    return !(elem === "Music" || elem === "Culture");
-  });
-}
-
+// main
 function createContent() {
-
-  document.getElementById('splash').addEventListener('click', function() {
-    document.getElementById('splash').style.bottom = '150vh';
-    // document.getElementById('splash').getElementsByTagName('img')[0].style.bottom = "50px";
-
-    document.getElementsByClassName('wrapper')[0].style["margin-top"] = 0;
-    document.getElementsByClassName('wrapper')[0].style["display"] = "block"
-    document.getElementsByClassName('header')[0].style["top"] = 0;
-    document.getElementsByTagName('body')[0].style["overflow-y"] = "auto";
-
-  });
+  document.getElementById('splash').addEventListener('click', splashClick);
+  // get data of first ten music articles on guadian
   var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
   request.open("GET", url);
@@ -32,23 +13,26 @@ function createContent() {
     if (request.readyState === 4) {
       if (request.status === 200) {
         var data = JSON.parse(request.responseText)
-        initCalls(data);
+        // NEXT CALL HERE
+        // now go an ask for tag info on on each article
+        initTagCalls(data);
       }
     }
   };
   request.send(null);
-
 }
 
-function initCalls(data) {
+// ask the guardian for tag info for each article
+function initTagCalls(data) {
   var articleObjs = data.response.results;
-
-  // createArticle(articleObjs[0]);
   articleObjs.forEach(function(elem) {
+    // NEXT CALL HERE
     getGuardianTags(elem);
   });
 }
 
+// make request to guardian for the tags of page passed as argument.
+// output is array string representing tags
 function getGuardianTags(elem) {
   var url = elem.apiUrl;
   var request = new XMLHttpRequest();
@@ -57,25 +41,52 @@ function getGuardianTags(elem) {
     if (request.readyState === 4) {
       if (request.status === 200) {
         var data = JSON.parse(request.responseText)
-        tags = data.response.content.tags.map(function(elem) {
+          // map names of tags out of response
+          tags = data.response.content.tags.map(function(elem) {
           return elem.webTitle;
+          //then remove tags Music and Culture
         }).filter(function(elem) {
           return !(elem === "Music" || elem === "Culture");
         });
-        generateURL(tags, elem);
+        // NEXT CALL HERE
+        // now to and get song URLs from soundcloud
+        generateSongURL(tags, elem);
       }
     }
   };
   request.send(null);
 }
-// var loaded = 0;
+
+// use tags to find song on soundcloud, keep data about articles so we can
+// push all content to page later
+function generateSongURL(tags_array, articleData) {
+  // create the query
+  var url_api = createSoundcloudQuery(tags_array);
+  var request = new XMLHttpRequest();
+  request.open("GET", url_api);
+  request.onload = function(e) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        // parse the url out of the song out of the soundcloud response
+        var songURL = URLFromResponse(request.responseText);
+        if (songURL) {
+          // NEXT CALL HERE
+          // ready to create articles
+          createArticleDiv(songURL, articleData);
+        } else {
+          console.log("failed to load song url: " + songURL);
+        }
+      }
+    }
+  };
+  request.send(null);
+}
+
+// create HTML element, set attributes and insert into page
 function createArticleDiv(songURL, articleData) {
-  // loaded++;
-  // document.getElementById('splash').innerHTML = loaded;
   var contentDiv = document.getElementsByClassName('content-main')[0];
   var newDiv = document.createElement('div');
   newDiv.className = "article";
-
 
   var contentLink = document.createElement('a');
   contentLink.href = articleData.webUrl;
@@ -85,37 +96,52 @@ function createArticleDiv(songURL, articleData) {
   title.innerHTML = articleData.webTitle;
   title.className = "titles";
 
+  var article_content = initArticleContent(articleData);
+
+  var player = initPlayer(songURL);
+
+  contentLink.appendChild(title);
+  newDiv.appendChild(contentLink);
+  newDiv.appendChild(article_content);
+  newDiv.appendChild(player);
+  contentDiv.appendChild(newDiv);
+
+}
+
+// create an iframe with songurl pointing to url given as input
+function initPlayer(url) {
+  var player = document.createElement('iframe');
+  player.className = 'player';
+  player.setAttribute('height', '166');
+  player.setAttribute('scrolling', 'no');
+  player.setAttribute('frameborder', 'no');
+  player.setAttribute('src', url);
+  return player;
+}
+
+// Create article div with content
+function initArticleContent(data) {
   var article_content = document.createElement('p');
-  var content = articleData.fields.body;
+  var content = data.fields.body;
   if (content.length > 500) {
     article_content.innerHTML = content.substring(0, 500) + "...";
   } else {
     article_content.innerHTML = content;
   }
   article_content.className = "flavour";
+  return article_content;
+}
 
-  // var readMore = document.createElement('button');
-  // readMore.innerHTML = "Read more...";
-   contentLink.appendChild(title);
+// change the css to make things slide on/off the screen
+function splashClick() {
+  var splashDiv = document.getElementById('splash');
+  var wrapper = document.getElementsByClassName('wrapper')[0];
+  var header = document.getElementsByClassName('header')[0];
+  var body = document.getElementsByTagName('body')[0];
 
-  var player = document.createElement('iframe');
-  player.className = 'player';
-  player.setAttribute('height', '166');
-  player.setAttribute('scrolling', 'no');
-  player.setAttribute('frameborder', 'no');
-  player.setAttribute('src', songURL);
-
-  // initPlayer(player, elem["tagsArray"]);
-newDiv.appendChild(contentLink);
-  // newDiv.appendChild(title);
-  // contentLink.appendChild(title);
-
-  newDiv.appendChild(article_content);
-
-  // newDiv.appendChild(readMore);
-
-  // contentLink.appendChild(readMore);
-  newDiv.appendChild(player);
-  contentDiv.appendChild(newDiv);
-
+  splashDiv.style.bottom = '150vh';
+  wrapper.style["margin-top"] = 0;
+  wrapper.style["display"] = "block"
+  header.style["top"] = 0;
+  body.style["overflow-y"] = "auto";
 }
