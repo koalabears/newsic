@@ -9,6 +9,7 @@
     <h2>Tests</h2>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
+    <div id="splash" class="content-main"></div>
     <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
     <script src="staticData.js"></script> <!-- setup the challenge -->
     <script src = "create.js"></script>
@@ -16,7 +17,7 @@
     <script src = "soundCloudHelpers.js"></script>
 
     <script>
-
+      
     test("Testing if createSoundcloudQuery constructs url correctly", function(assert) {
       var result = createSoundcloudQuery(["Classical music", "Festivals"]);
       var expected = "http://api.soundcloud.com/search?q=Classical%20music%20Festivals&client_id=a2b378fe2c15350323249b3ab162e4bf"

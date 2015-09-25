@@ -1,6 +1,6 @@
 // Find content + links from apis then dynamically create content!
 // execution starts here
-window.onload = createContent;
+window.onload = createContent();
 
 // main
 function createContent() {
