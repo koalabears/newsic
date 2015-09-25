@@ -79,9 +79,10 @@ function createArticleDiv(songURL, articleData) {
 
   var contentLink = document.createElement('a');
   contentLink.href = articleData.webUrl;
+  contentLink.target= "_blank";
 
   var title = document.createElement('h3');
-  title.innerHTML = articleData.webTitle.toUpperCase();
+  title.innerHTML = articleData.webTitle;
   title.className = "titles";
 
   var article_content = document.createElement('p');
