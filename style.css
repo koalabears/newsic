@@ -49,6 +49,7 @@ body {
 
 #splash:hover {
  cursor:pointer;
+ cursor: hand;
 }
 
 #splash img {
@@ -66,6 +67,11 @@ body {
   /*position: relative;*/
 }
 
+.container h1 {
+  color: white;
+  font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
+}
+
 /*DESKTOP*/
 /*@media screen and (min-width: 400px){
   .header{
@@ -75,6 +81,11 @@ body {
 
 /*MOBILE*/
 @media screen and (max-width: 480px) {
+
+    .container h1{
+      margin-top: 7.5em;
+    }
+
     #splash img {
         margin-bottom: 10em;
     }
@@ -84,6 +95,13 @@ body {
   margin: auto;
    position: absolute;
    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.container h1 {
+  position: absolute;
+ top: 200px;
+ left: 0;
+ width: 100%;
 }
 
 .header img {
