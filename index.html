@@ -25,7 +25,20 @@
       </div>
     </div>
 
-      <script type="text/javascript" src="main.js"></script>
+
+<!-- <script>
+  $("#loadTracks").live("click", function(){
+    SC.get("/tracks", {limit: 1}, function(tracks){
+      var track = tracks[0];
+      SC.oEmbed(trhack.uri, document.getElementById("track"));
+    });
+  });
+</script>
+
+<input type="button" id="loadTracks" class="button big" value="Get hottest track" />
+<div id="track"></div> -->
+      <script type="text/javascript" src="soundCloudHelpers.js"></script>
+
       <script type="text/javascript" src="create.js"></script>
 
 </body>
