@@ -12,7 +12,8 @@ To learn how to use APIs
 Using HTML, CSS, Javascript
 
 **Wireframes**
-![](https://files.gitter.im/foundersandcoders/koalabears/u6b3/WP_20150923_20_19_16_Pro.jpg)
+
+<img src = "https://files.gitter.im/foundersandcoders/koalabears/u6b3/WP_20150923_20_19_16_Pro.jpg" width=50%>
 
 **Who**
 Koalabears
