@@ -11,7 +11,8 @@ To learn how to use APIs
 **How**
 Using HTML, CSS, Javascript
 
-![](https://files.gitter.im/foundersandcoders/koalabears/u6b3/WP_20150923_20_19_16_Pro.jpg =250x)
+**Wireframes**
+![](https://files.gitter.im/foundersandcoders/koalabears/u6b3/WP_20150923_20_19_16_Pro.jpg "Markdown Image" =516x140)
 
 **Who**
 Koalabears
