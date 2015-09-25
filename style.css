@@ -12,6 +12,7 @@ body {
   background-color: white;
   width: 100%;
   transition: top 1s;
+  margin-left: -7%;
 }
 
 .header img {
@@ -71,7 +72,6 @@ body {
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
 }
 
-/*DESKTOP*/
 @media screen and (max-width: 480px) {
 
     .container h1{
@@ -80,6 +80,12 @@ body {
 
     #splash img {
         margin-bottom: 10em;
+    }
+
+    .header {
+      /*position: absolute;*/
+      /*margin-left: -10%;*/
+      /*margin-right: 10em;*/
     }
 }
 
