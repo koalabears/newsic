@@ -64,21 +64,10 @@ body {
   /*position: relative;*/
 }
 
-<<<<<<< HEAD
-/*MOBILE*/
-=======
 .container h1 {
   color: white;
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
 }
-
-/*DESKTOP*/
->>>>>>> 21c0e2dd0c1899eb1bb7b1f1a0c3c1b67942bb90
-/*@media screen and (min-width: 400px){
-  .header{
-    height: 12em;
-  }
-}*/
 
 /*DESKTOP*/
 @media screen and (max-width: 480px) {
