@@ -27,8 +27,10 @@ body {
 }
 
 .wrapper {
+  margin: auto;
   margin-top: 100vh;
   transition: margin-top 1s;
+  max-width: 50em;
   /*display: none;*/
 }
 
