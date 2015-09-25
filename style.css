@@ -49,7 +49,6 @@ body {
 
 #splash:hover {
  cursor:pointer;
- cursor: hand;
 }
 
 #splash img {
@@ -73,13 +72,6 @@ body {
 }
 
 /*DESKTOP*/
-/*@media screen and (min-width: 400px){
-  .header{
-    height: 12em;
-  }
-}*/
-
-/*MOBILE*/
 @media screen and (max-width: 480px) {
 
     .container h1{
@@ -161,7 +153,9 @@ p {
 }
 
 
-
+h3 {
+  text-transform: uppercase;
+}
 
 
 .flavour {
