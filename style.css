@@ -108,8 +108,13 @@ body {
 }
 
 .content-main {
-  margin: 0em 1em 1em 1em;
+
+
+  margin: auto;
+
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
+  max-width: 55em;
+
 }
 
 /*.clear {
