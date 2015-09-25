@@ -1,4 +1,3 @@
-// Hello Curious Person! :-)
 
 function loadCSS(href){
   var css = document.createElement('link');
@@ -23,7 +22,6 @@ function loadJS(src, next) {
 var css = [
   'http://yui.yahooapis.com/pure/0.6.0/pure-min.css',
   'https://code.jquery.com/qunit/qunit-1.18.0.css'
-]
+];
 
-css.forEach(function(href){ loadCSS(href) });
-// loadJS('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', fetchArticles)
+css.forEach(function(href){ loadCSS(href); });
