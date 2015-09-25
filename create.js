@@ -6,7 +6,7 @@ window.onload = createContent;
 function createContent() {
   document.getElementById('splash').addEventListener('click', splashClick);
   // get data of first ten music articles on guadian
-  var url = "http://content.guardianapis.com/search?section=music&api-key=test&show-fields=all&show-most-viewed=true";
+  var url = "http://content.guardianapis.com/search?section=music&show-tags=keyword&api-key=test&show-fields=all&show-most-viewed=true";
   var request = new XMLHttpRequest();
   request.open("GET", url);
   request.onload = function(e) {
@@ -26,36 +26,14 @@ function createContent() {
 function initTagCalls(data) {
   var articleObjs = data.response.results;
   articleObjs.forEach(function(elem) {
+    var tagsArray = elem.tags.map(function(tagElem) {
+      return tagElem.webTitle;
+    });
     // NEXT CALL HERE
-    getGuardianTags(elem);
+    generateSongURL(tagsArray, elem);
   });
 }
 
-// make request to guardian for the tags of page passed as argument.
-// output is array string representing tags
-function getGuardianTags(elem) {
-  var url = elem.apiUrl;
-  var request = new XMLHttpRequest();
-  request.open("GET", url + "?show-tags=keyword&api-key=test");
-  request.onload = function(e) {
-    if (request.readyState === 4) {
-      if (request.status === 200) {
-        var data = JSON.parse(request.responseText)
-          // map names of tags out of response
-          tags = data.response.content.tags.map(function(elem) {
-          return elem.webTitle;
-          //then remove tags Music and Culture
-        }).filter(function(elem) {
-          return !(elem === "Music" || elem === "Culture");
-        });
-        // NEXT CALL HERE
-        // now to and get song URLs from soundcloud
-        generateSongURL(tags, elem);
-      }
-    }
-  };
-  request.send(null);
-}
 
 // use tags to find song on soundcloud, keep data about articles so we can
 // push all content to page later
