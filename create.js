@@ -12,7 +12,7 @@ function createContent() {
   request.onload = function(e) {
     if (request.readyState === 4) {
       if (request.status === 200) {
-        var data = JSON.parse(request.responseText)
+        var data = JSON.parse(request.responseText);
         // NEXT CALL HERE
         // now go an ask for tag info on on each article
         initTagCalls(data);
