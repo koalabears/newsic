@@ -12,7 +12,7 @@ body {
   background-color: white;
   width: 100%;
   transition: top 1s;
-  margin-left: -7%;
+  /*margin-left: -20%;*/
 }
 
 .header img {
@@ -108,7 +108,7 @@ body {
 }
 
 .content-main {
-  margin: 4em 1em 1em 1em;
+  margin: 0em 1em 1em 1em;
   font-family: 'Segoe UI', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;;
 }
 
