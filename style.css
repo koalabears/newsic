@@ -12,8 +12,6 @@ body {
   background-color: white;
   width: 100%;
   transition: top 1s;
-  /*margin: 0em 0em 0.5em 0em;*/
-  /*display: none;*/
 }
 
 .header img {
@@ -44,6 +42,10 @@ body {
   background: url(https://cloud.githubusercontent.com/assets/12450298/10079980/fac4af3a-62e4-11e5-8821-7a1d8fcdf246.jpg) no-repeat center center;
   background-size: cover;
   /*z-index: 2;*/
+}
+
+#splash:hover {
+ cursor:pointer;
 }
 
 /*DESKTOP*/
@@ -85,6 +87,7 @@ h3 {
   color: black;
   font-size: 2em;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
   a {
