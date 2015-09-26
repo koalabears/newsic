@@ -2,10 +2,10 @@
 // queries. ie helper functions
 
 function createSoundcloudQuery(tags) {
-//adds upto 2 tags to url
+
   var out = "http://api.soundcloud.com/search?q=";
   for (var j = 0; j < tags.length && j < 2; j++) {
-    out += tags[j];
+    out += tags[j]
     if (j !== tags.length - 1) {
       out += "%20";
     }
