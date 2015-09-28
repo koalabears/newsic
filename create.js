@@ -83,7 +83,7 @@ function createArticleDiv(songURL, articleData) {
   newDiv.appendChild(article_content);
   newDiv.appendChild(player);
   contentDiv.appendChild(newDiv);
-
+//templating instead
 }
 
 // create an iframe with songurl pointing to url given as input

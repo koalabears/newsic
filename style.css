@@ -52,6 +52,7 @@ body {
 
 #splash:hover {
  cursor:pointer;
+ cursor:auto;
 }
 
 #splash img {
