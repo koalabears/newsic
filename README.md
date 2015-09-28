@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/koalabears/newsic"><img src="https://codeclimate.com/github/koalabears/newsic/badges/gpa.svg" /></a>
+
 # newsic
 
 Follow this link to the newsic website http://koalabears.github.io/newsic/
