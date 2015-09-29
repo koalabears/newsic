@@ -1,6 +1,6 @@
 <a href="https://codeclimate.com/github/koalabears/newsic"><img src="https://codeclimate.com/github/koalabears/newsic/badges/gpa.svg" /></a>
 <a href="https://travis-ci.org/koalabears/newsic"><img src="https://travis-ci.org/koalabears/newsic.svg?branch=tempnew"/></a>
-
+ 
 # newsic
 
 Follow this link to the newsic website http://koalabears.github.io/newsic/
