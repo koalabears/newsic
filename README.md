@@ -31,7 +31,7 @@ Koalabears
 ### **To improve (tips from the Guardian developers)**
 - Error check so website doesn't break e.g. tell the code what to do if something doesn't exist. Don't have lots of dots in objects. e.g. if x.y.z.a should be if x.y=? then if x.y.z=? then.....
 
-- INDENT CODE
+- INDENT CODE -
 
 - DECLARE VARIABLES AT THE TOP - vars should only ever follow a function statement
 
